@@ -72,26 +72,48 @@ void draw(void) {
   // call procedure from base class, http://arduino.cc/en/Serial/Print
   //u8g.print("AaBbCcDdАаБбВвГг");
 
-  u8g.setFont(u8g_font_fur17n); u8g.setPrintPos(45, 17); u8g.print("25"); //km/h
-  u8g.setFont(u8g_font_6x10); u8g.setPrintPos(74, 8); u8g.print("Km"); 
+  //u8g.setFont(u8g_font_fur17n); 
+    u8g.setFont(u8g_font_ncenR18); 
+
+
+  u8g.setPrintPos(45, 18); u8g.print("25"); //km/h
+  u8g.setPrintPos(45, 40); u8g.print("35"); //w*h/km
   u8g.drawHLine(74, 9, 11);
-  u8g.setFont(u8g_font_6x10); u8g.setPrintPos(77, 18); u8g.print("h");  
+  u8g.drawHLine(73, 31, 13);  u8g.drawHLine(79, 26, 1);
+  u8g.setFont(u8g_font_6x10); 
+  u8g.setPrintPos(74, 8); u8g.print("Km"); u8g.setPrintPos(77, 18); u8g.print("h");  
+  u8g.setPrintPos(73, 30); u8g.print("W"); u8g.setPrintPos(81, 30); u8g.print("h"); u8g.setPrintPos(74, 40); u8g.print("Km");
 
-  u8g.setFont(u8g_font_fur17n); u8g.setPrintPos(45, 40); u8g.print("35"); //w*h/km
-  u8g.setFont(u8g_font_6x10); u8g.setPrintPos(73, 30); u8g.print("W");
-  u8g.setFont(u8g_font_6x10); u8g.setPrintPos(81, 30); u8g.print("h");  
-  u8g.setFont(u8g_font_6x10); u8g.setPrintPos(74, 40); u8g.print("Km");
-  //u8g.drawHLine(73, 31, 14); u8g.drawHLine(79, 26, 2); u8g.drawHLine(79, 27, 2);
-  u8g.drawHLine(73, 31, 13); u8g.drawHLine(79, 26, 1); //u8g.drawHLine(79, 27, 2);
 
-u8g.drawHLine(0, 63, 35); 
-u8g.drawHLine(0, 42, 35); 
 
-u8g.drawVLine(0, 42, 21); 
 
-u8g.setFont(u8g_font_6x10); u8g.setPrintPos(3, 52); u8g.print("200");u8g.print("%");
-u8g.print("50");u8g.print("C");
- u8g.setPrintPos(3, 61); u8g.print("52.1");u8g.print("V");
+
+
+
+// нижняя, верхняя, левая
+u8g.drawHLine(0, 63,42); u8g.drawHLine(0, 42, 42); u8g.drawVLine(0, 42, 21); 
+
+//u8g.drawVLine(41, 43, 20); //tmp
+
+// плюс, и верхний, и нижний
+u8g.drawVLine(46, 49, 8); 
+u8g.drawHLine(46-5, 49, 5); u8g.drawHLine(46-5, 56, 5);
+u8g.drawVLine(41, 43, 6); u8g.drawVLine(41, 43+14, 6); 
+
+u8g.setFont(u8g_font_7x13Br); u8g.setPrintPos(8, 54); u8g.print("200");u8g.print("%");
+
+u8g.setFont(u8g_font_04b_03b); 
+u8g.setPrintPos(3, 61); u8g.print("52.1");u8g.print("v");
+
+u8g.setPrintPos(25, 61); u8g.print("50");u8g.print("C°");
+
+
+
+
+
+
+
+
 
 
 
