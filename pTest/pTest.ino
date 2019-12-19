@@ -1,6 +1,6 @@
 
 #include "U8glib.h" //U8glib_Arduino-1.19.1 https://github.com/olikraus/U8glib_Arduino/releases
-U8GLIB_ST7920_128X64_4X u8g(10); //
+U8GLIB_ST7920_128X64_4X u8g(10); // https://www.drive2.ru/b/451648316560638351/
 
  byte  lup = 0; // циклы отрисовки экрана
  
