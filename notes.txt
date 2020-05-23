@@ -1,0 +1,16 @@
+draw pixel 6.2
+draw clip 11.8 12.7
+clear 6
+@ 8.1 
+
+U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 5, 6, 7, 8, 9, 10, 11, 12, /*en=*/ 18 /* A4 */, U8X8_PIN_NONE, /*rs=*/ 17 /* A3 */, /*rst=*/ 15 /* A1 */);  // R/W соединить с общим
+
+draw clip  20.9
+clear 21
+@ 7.2
+draw pixel 10.2
+draw line 26.2
+
+setPrintPos
+setCursor
+
