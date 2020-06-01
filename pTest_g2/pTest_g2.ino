@@ -1,7 +1,6 @@
-#include <U8g2lib.h>
+#include <U8g2lib.h> //U8g2 2.27.6
 //U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 5, 6, 7, 8, 9, 10, 11, 12, /*en=*/ 18 /* A4 */, U8X8_PIN_NONE, /*rs=*/ 17 /* A3 */, /*rst=*/ 15 /* A1 */);  // R/W соединить с общим
-U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0,5,6,7,8,9,10,11,12,18,U8X8_PIN_NONE,17,15);
-
+U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 12,11,10,9,8,7,6,5, 18,U8X8_PIN_NONE,17,15);
 
  byte  lup = 0; // циклы отрисовки экрана
  
@@ -11,13 +10,9 @@ float vmax = 55.0 ; // максимальное напряжение измер�
 int vvalue = 0 ;
 float vout = 0.0 ;
 
-//
-
 
 void setup(void) {
   u8g2.begin();
-  // flip screen, if required
-  // u8g2.setRot180();
 
 pinMode(A0, INPUT);
 //analogReference(INTERNAL); // выбираем внутреннее опорное напряжение 1.1В
@@ -30,11 +25,11 @@ void draw(void) {
 
 //debug
 // u8g2.setFont(u8x8_font_5x7_r); u8g2.setCursor(0, 10); u8g2.print(lup);
-u8g2.setFont(u8g2_font_micro_mr);  u8g2.drawStr(0,10,lup);
+//u8g2.setFont(u8g2_font_micro_mr);  u8g2.drawStr(15,20,lup);
 
  vvalue = analogRead(A0);
  vout = (vvalue * vmax) / 1024.0 ;
- //u8g2.drawStr(0,30,vout);
+ u8g2.setCursor(0, 10);u8g2.print(vout);
 
   
   // graphic commands to redraw the complete screen should be placed here  
@@ -49,22 +44,23 @@ u8g2.setFont(u8g2_font_micro_mr);  u8g2.drawStr(0,10,lup);
  u8g2.setFont(  u8g2_font_ncenB18_te  ); 
 
   //u8g2.setCursor(45, 18); u8g2.print("25"); //km/h
-  //u8g2.setCursor(26, 18); u8g2.print("25.4"); //km/h
+  u8g2.setCursor(26, 18); u8g2.print("25.4"); //km/h
 
   float ran1 = random(1,30);
   ran1=ran1*100; ran1= ran1/1000;
   //ran1=tab(ran1/10),1
     // u8g2.setCursor(26, 18); u8g2.print("v:");u8g2.print(ran1); //km/h
-          u8g2.setCursor(40, 18);u8g2.print(ran1); //km/h
+       //   u8g2.setCursor(40, 18);u8g2.print(ran1); //km/h
+          
          //u8g2.drawStr(40,18,ran1); //km/h
     
   //u8g2.setCursor(45, 40); u8g2.print("35"); //w*h/km
   u8g2.setCursor(45, 40); u8g2.print("f");
   u8g2.setCursor(45+12, 40); u8g2.print("35"); //w*h/km
   
-  //u8g2.drawHLine(74, 9, 11);
+  u8g2.drawHLine(74, 9, 11);
   //u8g2.drawHLine(73, 31, 13);  u8g2.drawHLine(79, 26, 1);
-  u8g2.setFont(u8g2_font_micro_tr); 
+  u8g2.setFont(u8g2_font_5x7_tr); 
   u8g2.setCursor(74, 8); u8g2.print("Km"); u8g2.setCursor(77, 18); u8g2.print("h");  
     //u8g2.setCursor(74, 8); u8g2.print("Lx"); u8g2.setCursor(77, 18); u8g2.print("t");  
   //u8g2.setCursor(73, 30); u8g2.print("W"); u8g2.setCursor(81, 30); u8g2.print("h"); u8g2.setCursor(74, 40); u8g2.print("Km");
@@ -123,7 +119,10 @@ u8g2.setCursor(50, 61); u8g2.print("E"); //ток электроники
 //end region токи
 
 // region date
-u8g2.setFont(u8g2_font_blipfest_07_tr);
+//u8g2.setFont(u8g2_font_blipfest_07_tr);
+//u8g2.setFont(u8g2_font_chroma48medium8_8u);
+u8g2.setFont(u8g2_font_chroma48medium8_8u);
+
 u8g2.setCursor(110, 62); u8g2.print("2019");
 
 u8g2.setCursor(110, 55); u8g2.print("12");
