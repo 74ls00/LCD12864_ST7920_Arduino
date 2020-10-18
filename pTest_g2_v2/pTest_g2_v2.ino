@@ -38,7 +38,7 @@ Wire.write(0x7);
 Wire.write(0x10);
 Wire.endTransmission();
 
-//rtc.adjust(DateTime(2015, 11, 27,      0, 59, 52)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
+//rtc.adjust(DateTime(2020, 10, 18,      6, 25, 50)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
 
 
 } // End void setup
@@ -65,7 +65,7 @@ void draw(void) {
 
 
 //region скорость/расход
-u8g2.setFont(  u8g2_font_font18dig  ); // u8g2_font_ncenB18_te
+u8g2.setFont(  u8g2_font_18d  ); // u8g2_font_ncenB18_te
 u8g2.setCursor(26, 18); u8g2.print("25.4/"); //km/h   //u8g2.setCursor(45, 18); u8g2.print("25"); //km/h
 
 
@@ -159,24 +159,24 @@ u8g2.setCursor(50, 61); u8g2.print("E"); //ток электроники
 // 1307
    DateTime now = rtc.now();
 
-  u8g2.setFont(u8g2_font_blipfest_07_tr);
 //u8g2.setFont(u8g2_font_chroma48medium8_8u);
-
+u8g2.setFont(u8g2_font_7d); //u8g2_font_blipfest_07_tr
 
 //u8g2.setCursor(110, 62); u8g2.print("2019");
-u8g2.setCursor(110, 62); u8g2.print(now.year());
+u8g2.setCursor(98, 64); u8g2.print(now.year());
+u8g2.setCursor(118, 64); u8g2.print(".");
 
 //u8g2.setCursor(110, 55); u8g2.print("12");
-u8g2.setCursor(110, 55); u8g2.print(now.month());
+u8g2.setCursor(120, 64); u8g2.print(now.month());
 
 //u8g2.setCursor(95, 28); u8g2.print("23:59:00");
 
-//displayrtc = now.minute();
-u8g2.setCursor(95, 48); u8g2.print(now.hour());
-u8g2.setCursor(103, 47); u8g2.print(":");
-u8g2.setCursor(105, 48); u8g2.print(now.minute());
-u8g2.setCursor(113, 47); u8g2.print(":");
-u8g2.setCursor(115, 48); u8g2.print(now.second());
+u8g2.setCursor(95, 55); u8g2.print(now.hour());
+//u8g2.setCursor(95, 55); u8g2.print("23");
+u8g2.setCursor(105, 55); u8g2.print(":");
+u8g2.setCursor(107, 55); u8g2.print(now.minute());
+u8g2.setCursor(117, 55); u8g2.print(":");
+u8g2.setCursor(119, 55); u8g2.print(now.second());
 
 
 
@@ -214,7 +214,7 @@ if (lup > 10) lup = 0;
 
 
   
-  delay(150);
+  delay(100);
 } //End void loop
 
 /* ---------------------------------------------------------------------------------------------- */
