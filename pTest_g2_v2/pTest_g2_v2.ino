@@ -1,12 +1,17 @@
 #include <U8g2lib.h> //U8g2 2.27.6
 
 //#include <DS1307RTC.h> //DS1307RTC 1.4.0
-//#include <Wire.h>
+#include <Wire.h>
 //#include <Time.h>
+#include "RTClib.h"
 
 //U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 5, 6, 7, 8, 9, 10, 11, 12, /*en=*/ 18 /* A4 */, U8X8_PIN_NONE, /*rs=*/ 17 /* A3 */, /*rst=*/ 15 /* A1 */);  // R/W соединить с общим
 //U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 12,11,10,9,8,7,6,5, 18,U8X8_PIN_NONE,17,15); // nano
 U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 9,8,7,6,5,4,3,2, 16,U8X8_PIN_NONE,17,15); // pro mini
+
+RTC_DS1307 rtc; // "rtc" используется в начале функций, которые прилагаются с библиотекой
+int displayrtc = 1234 ;
+
 
 
  byte  lup = 0; // циклы отрисовки экрана
@@ -17,6 +22,7 @@ float vmax = 55.0 ; // максимальное напряжение измер�
 int vvalue = 0 ;
 float vout = 0.0 ;
 
+/* ---------------------------------------------------------------------------------------------- */
 
 void setup(void) {
   u8g2.begin();
@@ -26,7 +32,13 @@ pinMode(A0, INPUT);
 
 
 //1307
+//Запуск секундного выхода часов
+Wire.beginTransmission(0x68);
+Wire.write(0x7);
+Wire.write(0x10);
+Wire.endTransmission();
 
+//rtc.adjust(DateTime(2015, 11, 27,      0, 59, 52)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
 
 
 } // End void setup
@@ -128,19 +140,7 @@ u8g2.setCursor(58, 61); u8g2.print("3.25");u8g2.print("A");
 u8g2.setCursor(50, 61); u8g2.print("E"); //ток электроники
 //end region токи
 
-// region date
-u8g2.setFont(u8g2_font_blipfest_07_tr);
-//u8g2.setFont(u8g2_font_chroma48medium8_8u);
-//u8g2.setFont(u8g2_font_chroma48medium8_8u);
 
-u8g2.setCursor(110, 62); u8g2.print("2019");
-
-u8g2.setCursor(110, 55); u8g2.print("12");
-
-u8g2.setCursor(95, 48); u8g2.print("23:59:00");
-
-//u8g2.setCursor(95, 48); u8g2.print("23:59:00");
-//end region date
 
 
 //  u8g2.setFont(u8g2_font_10x20_78_79);
@@ -154,15 +154,55 @@ u8g2.setCursor(95, 48); u8g2.print("23:59:00");
   //u8g2.print("QqRrSsTtUuVvWw"); 
   //u8g2.print("абвгдеёжзик"); 
 
+
+
+// 1307
+   DateTime now = rtc.now();
+
+  u8g2.setFont(u8g2_font_blipfest_07_tr);
+//u8g2.setFont(u8g2_font_chroma48medium8_8u);
+
+
+//u8g2.setCursor(110, 62); u8g2.print("2019");
+u8g2.setCursor(110, 62); u8g2.print(now.year());
+
+//u8g2.setCursor(110, 55); u8g2.print("12");
+u8g2.setCursor(110, 55); u8g2.print(now.month());
+
+//u8g2.setCursor(95, 28); u8g2.print("23:59:00");
+
+//displayrtc = now.minute();
+u8g2.setCursor(95, 48); u8g2.print(now.hour());
+u8g2.setCursor(103, 47); u8g2.print(":");
+u8g2.setCursor(105, 48); u8g2.print(now.minute());
+u8g2.setCursor(113, 47); u8g2.print(":");
+u8g2.setCursor(115, 48); u8g2.print(now.second());
+
+
+
+   
+// end 1307
+
+
+
+
+
+
 } // End void draw
+
+
 
 /* ---------------------------------------------------------------------------------------------- */
 
 void loop(void) {
+
+
+  
   // picture loop
   u8g2.firstPage();  
   do {
     draw();
+// timertc();
   } while( u8g2.nextPage() );
   
   // rebuild the picture after some delay
@@ -171,13 +211,7 @@ lup = lup+1 ;
 if (lup > 10) lup = 0;
 
 
-// 1307
-//tmElements_t tm;
-//if (RTC.write(tm)) {
-  //    config = true;
-    //}
 
-// end 1307
 
   
   delay(150);
