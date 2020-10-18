@@ -1,6 +1,6 @@
 #include <U8g2lib.h> //U8g2 2.27.6
 
-//#include <DS1307RTC.h> //DS1307RTC 1.4.0
+//#include <DS1307RTC.h> //DS1307RTC 1.4.0 https://github.com/adafruit/RTClib
 #include <Wire.h>
 //#include <Time.h>
 #include "RTClib.h"
