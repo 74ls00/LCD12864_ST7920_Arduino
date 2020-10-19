@@ -1,25 +1,24 @@
-rem example
-rem bdfconv_2_22.exe -v -f 1 -m "32-127" ../bdf/helvB18.bdf -o helvb18_tf.c  -n u8g2_font_helvB18_tf -d ../bdf/helvB18.bdf
-rem type helvb18_tf.c
 cls
-
 set "bdfconv_2_22=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\u8g2\tools\font\bdfconv\bdfconv_2_22.exe"
 
 rem set font_name=u8g2_font_18d
 rem set font_name=u8g2_font_7d
 rem set font_name=u8g_font_04b_03b
- set font_name=u8g2_font_7x13B
+set font_name=u8g2_font_7x13B
 
 
 
-set "file_c=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2_v2\font_arduino-1.8.13p\%font_name%.c"
+rem set "file_c=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2_v2\fonts\%font_name%.h"
+set "file_c=%~d0%~p0..\fonts\%font_name%.h"
+
+del "%file_c%"
 
 rem set "font_bdf=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2_v2\font_arduino-1.8.13p\ncenB18m.bdf"
 rem set "font_bdf=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2_v2\font_arduino-1.8.13p\u8g2_font_7d.bdf"
 set "font_bdf=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2_v2\font_arduino-1.8.13p\%font_name%.bdf"
 
 
-del "%file_c%"
+
 
 
 rem 46-102
@@ -31,7 +30,11 @@ rem u8g2_font_7x13B num % 25-39 37-57
 
 rem pause
 
-rem set "file_c=G:\home\Documents\Projects\0-Electronics\E-bike\0-Display\LCD12864_ST7920_u8g2\pTest_g2\font\helvb18_tf.c"
 
 
+
+rem example
 rem bdfconv_2_22.exe -v -f 1 -m "32-127" ../bdf/helvB18.bdf -o helvb18_tf.c  -n u8g2_font_helvB18_tf -d ../bdf/helvB18.bdf
+rem type helvb18_tf.c
+
+
