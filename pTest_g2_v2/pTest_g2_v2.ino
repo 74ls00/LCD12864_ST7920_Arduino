@@ -71,8 +71,7 @@ u8g2.setFont(u8g_font_04b_03b);
 
 //region скорость/расход
 u8g2.setFont(  u8g2_font_18d  ); // u8g2_font_ncenB18_te
-u8g2.setCursor(26, 18); u8g2.print("25.4/"); //km/h   //u8g2.setCursor(45, 18); u8g2.print("25"); //km/h
-
+u8g2.setCursor(26, 18); u8g2.print("25.4");  u8g2.print("/"); //km/h   //u8g2.setCursor(45, 18); u8g2.print("25"); //km/h
 
   float ran1 = random(1,30);
   ran1=ran1*100; ran1= ran1/1000;
@@ -82,13 +81,21 @@ u8g2.setCursor(26, 18); u8g2.print("25.4/"); //km/h   //u8g2.setCursor(45, 18); 
           
          //u8g2.drawStr(40,18,ran1); //km/h
     
-  u8g2.setCursor(45, 40); u8g2.print("f");
-  u8g2.setCursor(45+12, 40); u8g2.print("35"); //w*h/km
+ // u8g2.setCursor(45, 40); u8g2.print("f");
+ // u8g2.setCursor(45+12, 40); u8g2.print("35"); //w*h/km
+    u8g2.setCursor(45, 40); u8g2.print("35"); //w*h/km
   
  // u8g2.drawHLine(74, 9, 11);
   //u8g2.drawHLine(73, 31, 13);  u8g2.drawHLine(79, 26, 1);
+  
  // u8g2.setFont(u8g2_font_5x7_tr); 
- // u8g2.setCursor(74, 8); u8g2.print("Km"); u8g2.setCursor(77, 18); u8g2.print("h");  
+
+
+//u8g2.setFont(u8g2_font_6x10_tf); 
+//u8g2.setFont(u8g2_font_siji_t_6x10); 
+
+//u8g2.setCursor(74, 8); u8g2.print("km"); u8g2.setCursor(77, 18); u8g2.print("h");  
+//u8g2.setCursor(73, 30); u8g2.print("W"); u8g2.setCursor(81, 30); u8g2.print("h"); u8g2.setCursor(74, 40); u8g2.print("km");
     //u8g2.setCursor(74, 8); u8g2.print("Lx"); u8g2.setCursor(77, 18); u8g2.print("t");  
   //u8g2.setCursor(73, 30); u8g2.print("W"); u8g2.setCursor(81, 30); u8g2.print("h"); u8g2.setCursor(74, 40); u8g2.print("Km");
     //u8g2.setCursor(73, 30); u8g2.print("P"); u8g2.setCursor(81, 30); u8g2.print("t"); u8g2.setCursor(74, 40); u8g2.print("Lx");
