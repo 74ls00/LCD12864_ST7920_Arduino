@@ -51,6 +51,11 @@ void draw(void) {
 //debug
 // u8g2.setFont(u8x8_font_5x7_r); u8g2.setCursor(0, 10); u8g2.print(lup);
 //u8g2.setFont(u8g2_font_micro_mr);  u8g2.drawStr(15,20,lup);
+u8g2.setFont(u8g_font_04b_03b);
+//u8g2.setFont(u8g2_font_04b_03b_1BB2B29C);
+
+
+//u8g2.setFont(u8g2_font_04b_03b);
 
  vvalue = analogRead(A0);
  vout = (vvalue * vmax) / 1024.0 ;
@@ -99,7 +104,15 @@ u8g2.drawHLine(46-5, 49, 5); u8g2.drawHLine(46-5, 56, 5);
 u8g2.drawVLine(41, 43, 6); u8g2.drawVLine(41, 43+14, 6); 
 
 //u8g2.setFont(u8g2_font_7x13r); u8g2.setCursor(8, 54); u8g2.print("KMhW");u8g2.print("%");
-u8g2.setFont(u8g2_font_pxplusibmcga_8u ); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%");
+
+u8g2.setFont(u8g2_font_7x13B); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //! 15002 48%
+//u8g2.setFont(u8g2_font_pxplusibmcga_8u ); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //15536 50%
+//u8g2.setFont(u8g2_font_7x13B_tr); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //! 15808 51%
+//u8g2.setFont(u8g2_font_7x13B_mr); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //! 16130 52%
+//u8g2.setFont(u8g2_font_7x13B_tf); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //! 16986 55%
+//u8g2.setFont(u8g2_font_7x13B_mf); u8g2.setCursor(8, 54); u8g2.print("200");u8g2.print("%"); //! 17690 57%
+
+
 
 // напряжение и температура батареи
 // u8g2_font_04b_03b https://github.com/olikraus/u8g2lib/wiki/fontgroup04
@@ -110,9 +123,9 @@ u8g2.setFont(u8g2_font_pxplusibmcga_8u ); u8g2.setCursor(8, 54); u8g2.print("200
 
 //!
 //u8g2.setFont(u8g2_font_blipfest_07_tr); 
-u8g2.setFont(u8g2_font_trixel_square_tf ); 
 //u8g2.setFont(u8g2_font_trixel_square_tr  ); 
-//u8g2.setFont(u8g2_font_trixel_square_tr  ); 
+//u8g2.setFont(u8g2_font_trixel_square_tf ); 
+u8g2.setFont(u8g_font_04b_03b  );
 
 float ran2 = random(311,611)/1;
 // ran2 = ran2 / 10
