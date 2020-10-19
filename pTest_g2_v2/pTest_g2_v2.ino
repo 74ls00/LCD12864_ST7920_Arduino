@@ -10,7 +10,7 @@
 U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 9,8,7,6,5,4,3,2, 16,U8X8_PIN_NONE,17,15); // pro mini
 
 RTC_DS1307 rtc; // "rtc" используется в начале функций, которые прилагаются с библиотекой
-int displayrtc = 1234 ;
+//int displayrtc = 1234 ;
 
 
 
@@ -33,12 +33,13 @@ pinMode(A0, INPUT);
 
 //1307
 //Запуск секундного выхода часов
-Wire.beginTransmission(0x68);
+/*Wire.beginTransmission(0x68);
 Wire.write(0x7);
 Wire.write(0x10);
 Wire.endTransmission();
+*/
 
-//rtc.adjust(DateTime(2020, 10, 18,      6, 25, 50)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
+//rtc.adjust(DateTime(2020, 10, 19,      4, 30, 30)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
 
 
 } // End void setup
@@ -163,23 +164,35 @@ u8g2.setCursor(50, 61); u8g2.print("E"); //ток электроники
 u8g2.setFont(u8g2_font_7d); //u8g2_font_blipfest_07_tr
 
 //u8g2.setCursor(110, 62); u8g2.print("2019");
-u8g2.setCursor(98, 64); u8g2.print(now.year());
-u8g2.setCursor(118, 64); u8g2.print(".");
+u8g2.setCursor(88, 64); u8g2.print(now.year());
+u8g2.setCursor(108, 64); u8g2.print(".");
 
 //u8g2.setCursor(110, 55); u8g2.print("12");
-u8g2.setCursor(120, 64); u8g2.print(now.month());
-
+u8g2.setCursor(109, 64); u8g2.print(now.month());
 //u8g2.setCursor(95, 28); u8g2.print("23:59:00");
 
-u8g2.setCursor(95, 55); u8g2.print(now.hour());
+
+u8g2.setCursor(117, 64); u8g2.print(".");
+//u8g2.setCursor(119, 64); u8g2.print("32");
+u8g2.setCursor(120, 64); u8g2.print(now.day());
+
+u8g2.setCursor(95, 55); u8g2.print(now.hour()); u8g2.print(":");
 //u8g2.setCursor(95, 55); u8g2.print("23");
-u8g2.setCursor(105, 55); u8g2.print(":");
-u8g2.setCursor(107, 55); u8g2.print(now.minute());
-u8g2.setCursor(117, 55); u8g2.print(":");
-u8g2.setCursor(119, 55); u8g2.print(now.second());
+//u8g2.setCursor(105, 55); 
 
 
 
+//u8g2.setCursor(107, 55); 
+u8g2.print(now.minute()); 
+//u8g2.print("16");
+
+//u8g2.setCursor(117, 55);
+u8g2.print(":");
+//u8g2.setCursor(119, 55); 
+u8g2.print(now.second());
+
+
+// батарейки СЦ установлены 2020.10.18
    
 // end 1307
 
