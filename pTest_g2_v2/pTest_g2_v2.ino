@@ -1,9 +1,8 @@
 #include <U8g2lib.h> //U8g2 2.27.6
 
-//#include <DS1307RTC.h> //DS1307RTC 1.4.0 https://github.com/adafruit/RTClib
 #include <Wire.h>
 //#include <Time.h>
-#include "RTClib.h"
+#include "RTClib.h" //RTClib 1.2.1 https://github.com/adafruit/RTClib
 
 //U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 5, 6, 7, 8, 9, 10, 11, 12, /*en=*/ 18 /* A4 */, U8X8_PIN_NONE, /*rs=*/ 17 /* A3 */, /*rst=*/ 15 /* A1 */);  // R/W соединить с общим
 //U8G2_ST7920_128X64_F_8080 u8g2(U8G2_R0, 12,11,10,9,8,7,6,5, 18,U8X8_PIN_NONE,17,15); // nano
@@ -39,7 +38,7 @@ Wire.write(0x10);
 Wire.endTransmission();
 */
 
-//rtc.adjust(DateTime(2020, 10, 19,      4, 30, 30)); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
+//rtc.adjust(DateTime(2020, 10, 19,      6, 42,0 )); // задаём год/ месяц/ дата/ часы/ минуты/ секунды
 
 
 } // End void setup
